@@ -8,7 +8,7 @@ let info = {
     origem: 'Pato Donald',
     nota: 'Namorada do personagem principal dos quadrinhos do Pato Donald',
     recorrente: 'Sim',
-    }
+    };
 
 /* 1 - Imprima no console uma mensagem de boas-vindas para a personagem acima,
  incluindo seu nome. Valor esperado no console: */
@@ -26,7 +26,7 @@ console.log('3 - ');
 
 for (let index in info) {
     console.log(index);
-}
+};
 
 /* 4 - 
 Faça um novo for/in , mas agora mostre todos os valores das chaves do objeto.
@@ -35,7 +35,7 @@ Faça um novo for/in , mas agora mostre todos os valores das chaves do objeto.
 
 for (let index in info) {
     console.log(info[index]);
-}
+};
 
 /* 5 -
 Agora, defina um segundo objeto com a mesma estrutura (as mesmas chaves) do primeiro e
