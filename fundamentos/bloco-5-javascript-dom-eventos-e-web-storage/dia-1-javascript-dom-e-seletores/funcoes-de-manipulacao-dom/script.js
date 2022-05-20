@@ -19,7 +19,7 @@ changeTextOnP('loremipsum')
 
 const changeMainContent = (backgroundColor) => (document.getElementsByClassName('main-content')[0].style.backgroundColor = backgroundColor)
 
-changeMainContent('green')
+changeMainContent('rgb(76,164,109)')
 
 const changeCenterContent = (backgroundColor) => (document.getElementsByClassName('center-content')[0].style.backgroundColor = backgroundColor)
 
