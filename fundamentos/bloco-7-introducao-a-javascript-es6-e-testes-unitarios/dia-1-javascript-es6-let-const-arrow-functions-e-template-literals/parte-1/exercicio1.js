@@ -5,7 +5,7 @@ Modifique as concatenações para template literals. */
 
 const testingScope = (escopo) => {
   if (escopo === true) {
-    const ifScope = 'Não devo ser utilizada fora do meu escopo (if)'
+    let ifScope = 'Não devo ser utilizada fora do meu escopo (if)'
     ifScope = `${ifScope} ótimo, fui utilizada no escopo !`
     console.log(ifScope)
   } else {
