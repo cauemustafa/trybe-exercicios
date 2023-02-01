@@ -3,7 +3,6 @@ const express = require('express');
 const OK = 200;
 const CREATED = 201;
 const NOT_FOUND = 404;
-// const INTERNAL_SERVER_ERROR = 500;
 
 const teams = [
   {
@@ -27,15 +26,30 @@ const app = express();
 
 app.use(express.json());
 
+// GET
+
 app.get('/', (_req, res) => res.status(OK).json({ message: 'Olá Mundo!' }));
 
 app.get('/teams', (_req, res) => res.status(OK).json({ teams }));
+
+app.get('/teams/:id', (req, res) => {
+  const { id } = req.params;
+  const teamId = teams.find((team) => team.id === Number(id));
+  if (!teamId) {
+    res.status(NOT_FOUND).json({ message: 'Team not found' });
+  }
+  res.status(OK).json({ teamId });
+});
+
+// POST
 
 app.post('/teams', (req, res) => {
   const newTeam = { ...req.body };
   teams.push(newTeam);
   res.status(CREATED).json({ team: newTeam });
 });
+
+// PUT
 
 app.put('/teams/:id', (req, res) => {
   const { id } = req.params;
@@ -49,14 +63,7 @@ app.put('/teams/:id', (req, res) => {
   res.status(OK).json({ updateTeam });
 });
 
-app.get('/teams/:id', (req, res) => {
-  const { id } = req.params;
-  const teamId = teams.find((team) => team.id === Number(id));
-  if (!teamId) {
-    res.status(NOT_FOUND).json({ message: 'Team not found' });
-  }
-  res.status(OK).json({ teamId });
-});
+// DELETE
 
 app.delete('/teams/:id', (req, res) => {
   const { id } = req.params;
